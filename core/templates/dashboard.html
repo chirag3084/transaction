@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        head,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        .nav,
+        .title {
+            background-color: aqua;
+        }
+
+        .nav {
+            padding-left: 95%;
+        }
+
+        .title {
+            padding-top: 20px;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h3 class="title">Dashboard</h3>
+        <div class="nav">
+            <!-- <a href="{% url 'home:home' %}">Home</a>
+            <a href="{% url 'home:register' %}">Register</a>
+            <a href="{% url 'home:login' %}">login</a> -->
+            <a href="{% url 'home:logout' %}">logout</a>
+
+        </div>
+    </div>
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="Add transcation" class="form">Add a new transcation</label><br>
+            <label for="(dd-mm-yyyy)" class="form">Enter the date of the transcation (dd-mm-yyyy)</label><br>
+            <input type="text" name="date_t"><br>
+            <label for="amount" class="form">Enter the amount:</label><br>
+            <input type="number" name="amount_t"><br>
+            <label for="Income or Expense" class="form">Enter the category('I' for Income or 'E' for Expense)
+                :</label><br>
+            <input type="text" name="I||E_t"><br>
+            <label for="description" class="form">Enter a description (optional):</label><br>
+            <input type="text" name="description_t"><br>
+            <label for="view transcation" class="form"> View transcations and a summary within a data range</label><br>
+            <label for="start-date" class="form">Enter the start date (dd-mm-yyyy):</label><br>
+            <input type="password" name="Confirm_Password"><br>
+            <label for="confirm password" class="data">confirm password</label><br>
+            <input type="password" name="Confirm_Password"><br>
+        </form>
+    </div>
+</body>
+mhk
+
+</html>
