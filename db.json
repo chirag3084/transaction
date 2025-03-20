@@ -1,1 +1,105 @@
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+import pandas as pd
+from datetime import datetime
+import csv
+
+# Initialize FastAPI app
+app = FastAPI()
+
+# CSV File Details
+CSV_FILE = "finance_data.csv"
+COLUMNS = ["date", "amount", "category", "description"]
+DATE_FORMAT = "%d-%m-%Y"
+
+# Initialize CSV if not exists
+try:
+    pd.read_csv(CSV_FILE)
+except FileNotFoundError:
+    df = pd.DataFrame(columns=COLUMNS)
+    df.to_csv(CSV_FILE, index=False)
+
+
+# Pydantic Model for Request Validation
+class Transaction(BaseModel):
+    date: str  # Format: DD-MM-YYYY
+    amount: float
+    category: str  # "Income" or "Expense"
+    description: str = ""  # Optional
+
+
+# Endpoint: Add a new transaction
+@app.post("/add_transaction/")
+def add_transaction(transaction: Transaction):
+    try:
+        # Validate Date Format
+        datetime.strptime(transaction.date, DATE_FORMAT)
+
+        # Validate Category
+        if transaction.category not in ["Income", "Expense"]:
+            raise HTTPException(status_code=400, detail="Category must be 'Income' or 'Expense'.")
+
+        # Save to CSV
+        with open(CSV_FILE, "a", newline="") as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=COLUMNS)
+            writer.writerow(transaction.dict())
+
+        return {"message": "Transaction added successfully!", "data": transaction.dict()}
+
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Invalid date format! Use DD-MM-YYYY.")
+
+
+# Endpoint: Get transactions within a date range
+@app.get("/transactions/")
+def get_transactions(start_date: str, end_date: str):
+    try:
+        df = pd.read_csv(CSV_FILE)
+
+        # Convert date column to datetime
+        df["date"] = pd.to_datetime(df["date"], format=DATE_FORMAT)
+
+        # Convert user input dates
+        start_date = datetime.strptime(start_date, DATE_FORMAT)
+        end_date = datetime.strptime(end_date, DATE_FORMAT)
+
+        # Filter data
+        filtered_df = df[(df["date"] >= start_date) & (df["date"] <= end_date)]
+
+        if filtered_df.empty:
+            return {"message": "No transactions found in this date range."}
+
+        return filtered_df.to_dict(orient="records")
+
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Invalid date format! Use DD-MM-YYYY.")
+
+
+ # Endpoint: Get financial summary
+# @app.get("/summary/")
+# def get_summary(start_date: str, end_date: str):
+#     try:
+#         df = pd.read_csv(CSV_FILE)
+#         df["date"] = pd.to_datetime(df["date"], format=DATE_FORMAT)
+
+#         start_date = datetime.strptime(start_date, DATE_FORMAT)
+#         end_date = datetime.strptime(end_date, DATE_FORMAT)
+
+#         filtered_df = df[(df["date"] >= start_date) & (df["date"] <= end_date)]
+
+#         if filtered_df.empty:
+#             return {"message": "No transactions found in this date range."}
+
+#         total_income = filtered_df[filtered_df["category"] == "Income"]["amount"].sum()
+#         total_expense = filtered_df[filtered_df["category"] == "Expense"]["amount"].sum()
+
+#         return {
+#             "total_income": round(total_income, 2),
+#             "total_expense": round(total_expense, 2),
+#             "net_savings": round(total_income - total_expense, 2)
+#         }
+
+#     except ValueError:
+#         raise HTTPException(status_code=400, detail="Invalid date format! Use DD-MM-YYYY.")
+
 
