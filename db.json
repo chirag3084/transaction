@@ -1,0 +1,176 @@
+[
+  {
+    "date": "2024-12-06T00:00:00",
+    "amount": 4500,
+    "category": "Income",
+    "description": "Salary"
+  },
+  {
+    "date": "2024-12-07T00:00:00",
+    "amount": 45,
+    "category": "Expense",
+    "description": "YT_Camera"
+  },
+  {
+    "date": "2024-12-15T00:00:00",
+    "amount": 6700,
+    "category": "Income",
+    "description": "Gigg"
+  },
+  {
+    "date": "2024-12-17T00:00:00",
+    "amount": 120,
+    "category": "Expense",
+    "description": "Groceries"
+  },
+  {
+    "date": "2024-12-18T00:00:00",
+    "amount": 30.5,
+    "category": "Expense",
+    "description": "Coffee"
+  },
+  {
+    "date": "2024-12-19T00:00:00",
+    "amount": 2500,
+    "category": "Income",
+    "description": "Bonus"
+  },
+  {
+    "date": "2024-12-20T00:00:00",
+    "amount": 500,
+    "category": "Expense",
+    "description": "Electronics"
+  },
+  {
+    "date": "2024-12-21T00:00:00",
+    "amount": 800,
+    "category": "Expense",
+    "description": "Home Rent"
+  },
+  {
+    "date": "2024-12-22T00:00:00",
+    "amount": 60,
+    "category": "Expense",
+    "description": "Subscription"
+  },
+  {
+    "date": "2024-12-23T00:00:00",
+    "amount": 400,
+    "category": "Expense",
+    "description": "Books"
+  },
+  {
+    "date": "2024-12-24T00:00:00",
+    "amount": 150,
+    "category": "Expense",
+    "description": "Utilities"
+  },
+  {
+    "date": "2024-12-25T00:00:00",
+    "amount": 100,
+    "category": "Expense",
+    "description": "Gift"
+  },
+  {
+    "date": "2024-12-26T00:00:00",
+    "amount": 2000,
+    "category": "Income",
+    "description": "Freelance"
+  },
+  {
+    "date": "2024-12-27T00:00:00",
+    "amount": 45.5,
+    "category": "Expense",
+    "description": "Transport"
+  },
+  {
+    "date": "2024-12-28T00:00:00",
+    "amount": 89,
+    "category": "Expense",
+    "description": "Dining Out"
+  },
+  {
+    "date": "2024-12-29T00:00:00",
+    "amount": 50,
+    "category": "Expense",
+    "description": "Pet Supplies"
+  },
+  {
+    "date": "2024-12-30T00:00:00",
+    "amount": 700,
+    "category": "Expense",
+    "description": "Car Maintenance"
+  },
+  {
+    "date": "2024-12-31T00:00:00",
+    "amount": 5000,
+    "category": "Income",
+    "description": "Project Completion"
+  },
+  {
+    "date": "2025-01-01T00:00:00",
+    "amount": 300,
+    "category": "Expense",
+    "description": "New Year Party"
+  },
+  {
+    "date": "2025-01-02T00:00:00",
+    "amount": 150,
+    "category": "Expense",
+    "description": "Health & Fitness"
+  },
+  {
+    "date": "2025-01-03T00:00:00",
+    "amount": 75,
+    "category": "Expense",
+    "description": "Movie Night"
+  },
+  {
+    "date": "2025-01-04T00:00:00",
+    "amount": 400,
+    "category": "Income",
+    "description": "Side Hustle"
+  },
+  {
+    "date": "2025-01-05T00:00:00",
+    "amount": 35,
+    "category": "Expense",
+    "description": "Cab Fare"
+  },
+  {
+    "date": "2025-01-06T00:00:00",
+    "amount": 100,
+    "category": "Expense",
+    "description": "Work Lunch"
+  },
+  {
+    "date": "2025-01-07T00:00:00",
+    "amount": 60,
+    "category": "Expense",
+    "description": "Stationery"
+  },
+  {
+    "date": "2025-01-08T00:00:00",
+    "amount": 90,
+    "category": "Expense",
+    "description": "Mobile Data"
+  },
+  {
+    "date": "2025-01-09T00:00:00",
+    "amount": 3000,
+    "category": "Income",
+    "description": "Consulting"
+  },
+  {
+    "date": "2025-01-10T00:00:00",
+    "amount": 500,
+    "category": "Expense",
+    "description": "Weekend Getaway"
+  },
+  {
+    "date": "2025-01-11T00:00:00",
+    "amount": 230000,
+    "category": "Income",
+    "description": "freelancing"
+  }
+]
